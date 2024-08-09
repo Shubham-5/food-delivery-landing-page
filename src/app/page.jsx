@@ -1,6 +1,39 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+
+import Card from "./components/ui/Card";
+import Footer from "./components/ui/Footer";
+
+const cards1 = [
+  { id: 1, cover: "/blog_1.png", title: "Grilled Tomatoes at Home" },
+  { id: 2, cover: "/blog_2.png", title: "Snacks for Travel" },
+  { id: 3, cover: "/blog_3.png", title: "Post-workout Recipes" },
+];
+
+const cards2 = [
+  { id: 4, cover: "/blog_4.png", title: "How To Grill Corn" },
+  { id: 5, cover: "/blog_5.png", title: "Crunchwrap Supreme" },
+  { id: 6, cover: "/blog_6.png", title: "Broccoli Cheese Soup" },
+];
 
 export default function Home() {
+  const [arr1, setArr1] = useState("block");
+  const [arr2, setArr2] = useState("hidden");
+  const [page, setPage] = useState(1);
+
+  const showNext = () => {
+    setArr1("hidden");
+    setArr2("block");
+    setPage(2);
+  };
+
+  const showPrev = () => {
+    setArr1("block");
+    setArr2("none");
+    setPage(1);
+  };
   return (
     <main className="w-full">
       <section className="flex justify-between items-center flex-col lg:flex-row relative">
@@ -69,6 +102,49 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="my-24 px-12">
+        <h2 className="text-4xl font-semibold text-blue-900">
+          Latest Articles
+        </h2>
+        <div className="my-10 flex flex-col lg:flex-row justify-start gap-10 lg:gap-10">
+          {cards1.map((item) => (
+            <div
+              key={item.id}
+              className={`transition-all duration-300 ${arr1}`}
+            >
+              <Card item={item} />
+            </div>
+          ))}
+          {cards2.map((item) => (
+            <div
+              key={item.id}
+              className={`transition-all duration-300 ${arr2}`}
+            >
+              <Card item={item} />
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-center items-center gap-5">
+          <button
+            disabled={page === 1}
+            className="bg-white border px-4 py-2 rounded"
+            onClick={showPrev}
+          >
+            {"<"}
+          </button>
+          <span>{page}/2</span>
+          <button
+            disabled={page === 2}
+            className="bg-white border px-4 py-2 rounded"
+            onClick={showNext}
+          >
+            {">"}
+          </button>
+        </div>
+      </section>
+
+      <Footer />
     </main>
   );
 }
