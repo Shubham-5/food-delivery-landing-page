@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <main className="w-full">
       <section className="flex justify-between items-center flex-col lg:flex-row relative">
-        <div className="text-center lg:text-left lg:w-1/2 p-4 lg:px-24 ">
+        <div className="text-center lg:text-left lg:w-1/2 p-4 lg:px-24 order-2 lg:order-1 mt-20 md:mt-0">
           <Image
             src="/logo.png"
             alt="logo"
@@ -57,7 +57,7 @@ export default function Home() {
             Explore Now!
           </button>
         </div>
-        <div className="relative lg:w-1/2 ">
+        <div className="relative lg:w-1/2 order-1 lg:order-2">
           <Image
             src="/hero.png"
             alt="Food Image"
@@ -72,7 +72,7 @@ export default function Home() {
             height={680}
             className="absolute top-0 right-0"
           />
-          <button className="absolute z-50 top-8 right-8 border border-white w-28 h-10 lg:w-32 lg:h-11 rounded-full text-white">
+          <button className="absolute z-50 md:top-8 md:right-8 top-4 right-4 text-sm md:text-md border border-white w-28 h-10 lg:w-32 lg:h-11 rounded-full text-white">
             Get In Touch
           </button>
         </div>
@@ -87,9 +87,9 @@ export default function Home() {
             height={300}
             className="hidden lg:block"
           />
-          <div className="text-center lg:text-left lg:w-1/2 p-10">
+          <div className="text-center lg:text-left lg:w-1/2 p-10 md:py-10 py-20">
             <h2 className="text-4xl font-bold text-blue-900">About Us</h2>
-            <p className="mt-5 text-gray-700">
+            <p className="mt-5 text-gray-500 text-xs md:text-sm">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry&apos;s standard dummy
               text ever since the 1500s, when an unknown printer took a galley
@@ -104,7 +104,7 @@ export default function Home() {
       </section>
 
       <section className="my-24 px-12">
-        <h2 className="text-4xl font-semibold text-blue-900">
+        <h2 className="text-4xl font-semibold text-blue-900 text-center lg:text-left">
           Latest Articles
         </h2>
         <div className="my-10 flex flex-col lg:flex-row justify-start gap-10 lg:gap-10">
