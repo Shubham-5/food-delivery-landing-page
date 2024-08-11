@@ -10,7 +10,7 @@ export default function Card({ item }) {
         <h3 className="text-lg font-semibold text-gray-800">{item.title}</h3>
         <p className="mt-2 text-gray-600 text-sm">
           Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard...
+          industry. Lorem Ipsum has been the industry standard...
         </p>
         <button className="mt-4 text-sm font-medium border-black border rounded-full px-4 py-2">
           Read More
